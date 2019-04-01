@@ -102,7 +102,7 @@ class Page extends AbstractBlock
      */
     protected function getStore()
     {
-        $this->storeManager->getStore();
+       return $this->storeManager->getStore();
     }
 
     /**
