@@ -78,7 +78,7 @@ class Page extends AbstractBlock
                 /** @var \Magento\Cms\Model\Page $page */
                 $page = $this->pageFactory->create();
                 $page
-                    ->setStoreId([$this->getStore()->getId()])
+                    ->setData('store_id', $this->getStore()->getId())
                     ->load($this->getPageId(), 'page_id');
             } else {
                 $page = $this->pageModel;
