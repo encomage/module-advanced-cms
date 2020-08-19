@@ -13,6 +13,8 @@ namespace Encomage\AdvancedCms\Observer;
 
 use Magento\Framework\Event\Observer;
 use Magento\Framework\Event\ObserverInterface;
+use Magento\Framework\View\Layout;
+use Magento\Framework\View\Element\Template;
 
 /**
  * Class CmsBlockLoadAfter
@@ -26,6 +28,21 @@ use Magento\Framework\Event\ObserverInterface;
 class CmsBlockLoadAfter implements ObserverInterface
 {
     /**
+     * @var Layout
+     */
+    private $layout;
+
+
+    /**
+     * CmsBlockLoadAfter constructor.
+     * @param Layout $layout
+     */
+    public function __construct(Layout $layout)
+    {
+        $this->layout = $layout;
+    }
+
+    /**
      * @param Observer $observer
      * @return $this
      */
@@ -33,22 +50,26 @@ class CmsBlockLoadAfter implements ObserverInterface
     {
         /** @var \Magento\Cms\Model\Block $block */
         $block = $observer->getDataObject();
-        $html = '';
+        $advancedSettings = '';
         if ($customCss = trim($block->getCustomCss())) {
-            $html = '<style>';
-            $html .= $customCss;
-            $html .= '</style>';
-
+            $advancedSettings .= '<style>' . $customCss . '</style>';
         }
         if ($js = $block->getCustomJs()) {
-            $html .= '<script>' . $js . '</script>';
+            $advancedSettings .= '<script>' . $js . '</script>';
         }
-        if ($html && strpos($block->getContent(), $html) === false) {
-            $block->setContent($block->getContent() . $html);
-
+        if ($block->getUseAsPopUp()) {
+            $block->setContent(
+                $this->layout
+                    ->createBlock(Template::class)
+                    ->setTemplate('Encomage_AdvancedCms::cms/block/pop-up.phtml')
+                    ->setCmsBlock($block)
+                    ->toHtml()
+            );
+        }
+        if ($advancedSettings && strpos($block->getContent(), $advancedSettings) === false) {
+            $block->setContent($block->getContent() . $advancedSettings);
         }
 
         return $this;
     }
-
 }

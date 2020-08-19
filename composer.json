@@ -1,6 +1,6 @@
 {
     "name": "encomage/module-advanced-cms",
-    "description": "Add custom css and js to CMS block/page",
+    "description": "Add custom css and js to CMS block/page. Create CMS block as pop up",
     "authors": [
         {
             "name": "Encomage",
@@ -17,10 +17,11 @@
         "CMS css",
         "custom css",
         "custom javascript",
-        "module"
+        "module",
+        "CMS Block Pop Up"
     ],
     "type": "magento2-module",
-    "version": "1.0.2",
+    "version": "1.1.0",
     "license": [
         "OSL-3.0",
         "AFL-3.0"

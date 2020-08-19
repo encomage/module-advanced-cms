@@ -1,28 +1,33 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-    <fieldset name="design">
-        <field name="custom_css">
+    <fieldset name="advanced_cms_options">
+        <settings>
+            <level>1</level>
+            <collapsible>true</collapsible>
+            <label translate="true">Advanced Options</label>
+        </settings>
+        <field name="custom_css" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Custom CSS</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">page</item>
-                    <item name="dataScope" xsi:type="string">custom_css</item>
                 </item>
             </argument>
+            <settings>
+                <label translate="true">Custom CSS</label>
+                <dataScope>custom_css</dataScope>
+            </settings>
         </field>
-        <field name="custom_js">
+        <field name="custom_js" formElement="textarea">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Custom Js</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">page</item>
-                    <item name="dataScope" xsi:type="string">custom_js</item>
                 </item>
             </argument>
+            <settings>
+                <label translate="true">Custom JS</label>
+                <dataScope>custom_js</dataScope>
+            </settings>
         </field>
     </fieldset>
 </form>

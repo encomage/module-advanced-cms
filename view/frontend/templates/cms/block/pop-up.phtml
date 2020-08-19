@@ -1,0 +1,38 @@
+<?php
+/**
+ * @var $block \Magento\Framework\View\Element\Template
+ * @var $cmsBlock \Magento\Cms\Model\Block
+ */
+$cmsBlock = $block->getCmsBlock();
+?>
+<a href="#" class="action"
+   data-advanced-cms-block-pop-up-trigger="<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()); ?>">
+    <span><?= $block->escapeHtml($cmsBlock->getPopUpTriggerLabel()); ?></span>
+</a>
+<div class="cms-advanced-block-popup no-display"
+     data-advanced-cms-block-pop-up-content="<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()); ?>">
+    <?= /* @noEscape */
+    $cmsBlock->getContent(); ?>
+</div>
+
+<script type="text/javascript">
+    require(
+        ['jquery', 'Magento_Ui/js/modal/modal'],
+        function ($) {
+            $('[data-advanced-cms-block-pop-up-trigger=<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()) ?>]')
+                .on('click', function (e) {
+                    e.preventDefault();
+                })
+            $('[data-advanced-cms-block-pop-up-content=<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()) ?>]')
+                .modal({
+                    type: 'popup',
+                    trigger: '[data-advanced-cms-block-pop-up-trigger=<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()) ?>]',
+                    responsive: true,
+                    buttons: [],
+                    opened: function (e) {
+                        $(e.target).show()
+                    }
+                })
+
+        });
+</script>
