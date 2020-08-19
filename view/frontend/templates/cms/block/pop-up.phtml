@@ -25,10 +25,12 @@ $cmsBlock = $block->getCmsBlock();
                 })
             $('[data-advanced-cms-block-pop-up-content=<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()) ?>]')
                 .modal({
+                    title: false,
                     type: 'popup',
                     trigger: '[data-advanced-cms-block-pop-up-trigger=<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()) ?>]',
                     responsive: true,
-                    buttons: [],
+                    buttons: false,
+                    modalClass: 'cms-block-pop-up-<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier())?>',
                     opened: function (e) {
                         $(e.target).show()
                     }

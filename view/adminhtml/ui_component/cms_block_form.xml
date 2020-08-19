@@ -38,7 +38,7 @@
                 </item>
             </argument>
             <settings>
-                <label translate="true">Pop Up Trigger Label</label>
+                <label translate="true">Pop Up Button Label</label>
                 <dataScope>pop_up_trigger_label</dataScope>
             </settings>
         </field>
