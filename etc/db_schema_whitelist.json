@@ -1,0 +1,16 @@
+{
+    "cms_block": {
+        "column": {
+            "custom_css": true,
+            "custom_js": true,
+            "use_as_pop_up": true,
+            "pop_up_trigger_label": true
+        }
+    },
+    "cms_page": {
+        "column": {
+            "custom_css": true,
+            "custom_js": true
+        }
+    }
+}

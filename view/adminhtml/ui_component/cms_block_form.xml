@@ -1,28 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <form xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Ui:etc/ui_configuration.xsd">
-    <fieldset name="general">
-        <field name="custom_css">
+    <fieldset name="advanced_cms_options">
+        <settings>
+            <level>1</level>
+            <collapsible>true</collapsible>
+            <label translate="true">Advanced Options</label>
+        </settings>
+        <field name="use_as_pop_up" sortOrder="15" formElement="checkbox">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Custom CSS</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">block</item>
-                    <item name="dataScope" xsi:type="string">custom_css</item>
+                    <item name="default" xsi:type="number">0</item>
                 </item>
             </argument>
+            <settings>
+                <dataType>boolean</dataType>
+                <label translate="true">Use As Pop Up</label>
+                <dataScope>use_as_pop_up</dataScope>
+            </settings>
+            <formElements>
+                <checkbox>
+                    <settings>
+                        <valueMap>
+                            <map name="false" xsi:type="number">0</map>
+                            <map name="true" xsi:type="number">1</map>
+                        </valueMap>
+                        <prefer>toggle</prefer>
+                    </settings>
+                </checkbox>
+            </formElements>
         </field>
-        <field name="custom_js">
+        <field name="pop_up_trigger_label" formElement="input">
             <argument name="data" xsi:type="array">
                 <item name="config" xsi:type="array">
-                    <item name="dataType" xsi:type="string">text</item>
-                    <item name="label" xsi:type="string" translate="true">Custom Js</item>
-                    <item name="formElement" xsi:type="string">textarea</item>
                     <item name="source" xsi:type="string">block</item>
-                    <item name="dataScope" xsi:type="string">custom_js</item>
                 </item>
             </argument>
+            <settings>
+                <label translate="true">Pop Up Trigger Label</label>
+                <dataScope>pop_up_trigger_label</dataScope>
+            </settings>
+        </field>
+        <field name="custom_css" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Custom CSS</label>
+                <dataScope>custom_css</dataScope>
+            </settings>
+        </field>
+        <field name="custom_js" formElement="textarea">
+            <argument name="data" xsi:type="array">
+                <item name="config" xsi:type="array">
+                    <item name="source" xsi:type="string">block</item>
+                </item>
+            </argument>
+            <settings>
+                <label translate="true">Custom JS</label>
+                <dataScope>custom_js</dataScope>
+            </settings>
         </field>
     </fieldset>
 </form>
