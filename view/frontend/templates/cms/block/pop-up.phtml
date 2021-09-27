@@ -5,10 +5,12 @@
  */
 $cmsBlock = $block->getCmsBlock();
 ?>
-<a href="#" class="action"
-   data-advanced-cms-block-pop-up-trigger="<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()); ?>">
-    <span><?= $block->escapeHtml($cmsBlock->getPopUpTriggerLabel()); ?></span>
-</a>
+<?php if ($cmsBlock->getPopUpTriggerLabel()): ?>
+    <a href="#" class="action"
+       data-advanced-cms-block-pop-up-trigger="<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()); ?>">
+        <span><?= $block->escapeHtml($cmsBlock->getPopUpTriggerLabel()); ?></span>
+    </a>
+<?php endif; ?>
 <div class="cms-advanced-block-popup no-display"
      data-advanced-cms-block-pop-up-content="<?= $block->escapeHtmlAttr($cmsBlock->getIdentifier()); ?>">
     <?= /* @noEscape */
